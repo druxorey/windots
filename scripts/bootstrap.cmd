@@ -47,7 +47,7 @@ echo slmgr /ato
 goto :eof
 
 :installApps
-set apps="7zip.7zip" "Microsoft.PowerToys" "Microsoft.VisualStudioCode"
+set apps="7zip.7zip" "Microsoft.PowerToys" "Microsoft.VisualStudioCode" "AIMP.AIMP" "Git.Git" "Neovim.Neovim" "SumatraPDF.SumatraPDF" "VideoLAN.VLC" "AdrienAllard.FileConverter" "dotPDN.PaintDotNet" "OBSProject.OBSStudio" "Valve.Steam" "Mojang.MinecraftLauncher" "GOG.Galaxy" "Google.ChromeRemoteDesktopHost" "QL-Win.QuickLook" "Notion.Notion" "Brave.Brave" "Discord.Discord" "Microsoft.OneDrive" "Obsidian.Obsidian" 
 
 for %%i in (%apps%) do (
 	echo Installing %%i...
