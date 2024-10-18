@@ -6,15 +6,15 @@ echo Do you want to activate windows? (Y/N)
 set /p userInput=
 
 if /i "%userInput%"=="Y" (
-    echo Continuing with the script execution...
-    call :activateWindows
-    goto askToInstallApps
+	echo Continuing with the script execution...
+	call :activateWindows
+	goto askToInstallApps
 ) else if /i "%userInput%"=="N" (
-    echo Ending the script.
-    goto askToInstallApps
+	echo Ending the script.
+	goto askToInstallApps
 ) else (
-    echo Invalid input. Please enter Y or N.
-    goto askToActivate
+	echo Invalid input. Please enter Y or N.
+	goto askToActivate
 )
 
 :askToInstallApps
@@ -22,15 +22,15 @@ echo Do you want to install applications? (Y/N)
 set /p userInput=
 
 if /i "%userInput%"=="Y" (
-    echo Continuing with the script execution...
-    call :installApps
-    goto end
+	echo Continuing with the script execution...
+	call :installApps
+	goto end
 ) else if /i "%userInput%"=="N" (
-    echo Ending the script.
-    goto end
+	echo Ending the script.
+	goto end
 ) else (
-    echo Invalid input. Please enter Y or N.
-    goto askToInstallApps
+	echo Invalid input. Please enter Y or N.
+	goto askToInstallApps
 )
 
 :activateWindows
@@ -47,21 +47,14 @@ echo slmgr /ato
 goto :eof
 
 :installApps
-set apps=(
-    "Microsoft.VisualStudioCode"
-    "Google.Chrome"
-    "Mozilla.Firefox"
-    "7zip.7zip"
-    "Notepad++.Notepad++"
-)
+set apps="7zip.7zip" "Microsoft.PowerToys" "Microsoft.VisualStudioCode"
 
-for %%i in %apps% do (
-    echo Installing %%i...
-    echo winget install %%i --silent --accept-package-agreements --accept-source-agreements
+for %%i in (%apps%) do (
+	echo Installing %%i...
+	winget install %%i --silent --accept-package-agreements --accept-source-agreements
 )
 
 echo Installation completed.
-pause
 
 goto :eof
 
