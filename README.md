@@ -27,6 +27,9 @@ To install the script, use the following command:
 powershell -NoProfile -ExecutionPolicy Bypass -Command "iex (iwr -UseBasicParsing 'https://raw.githubusercontent.com/druxorey/windots/refs/heads/main/scripts/windows-bootstrap.ps1')"
 ```
 
+> [!NOTE] COMMAND EXPLICATION
+> This command downloads and executes the `windows-bootstrap.ps1` script from the GitHub repository. It uses `Invoke-WebRequest` (`iwr`) to fetch the script and `Invoke-Expression` (`iex`) to run it directly in PowerShell. The `-NoProfile` option ensures that PowerShell runs without loading user profiles, and `-ExecutionPolicy Bypass` allows the script to execute without execution policy restrictions.
+
 ## Contribute
 
 If you want to add new scripts or improve existing ones, follow these steps:
