@@ -12,7 +12,7 @@
 
 - `scripts`: Contains useful scripts for automating tasks during the initial setup of a Windows installation.
 
-> [!NOTE]
+> [!CAUTION]
 > Some of these scripts may violate Microsoft's guidelines and could be illegal. Whenever possible, acquire original licenses to avoid legal issues and ensure compliance with usage policies.
 
 ## Installation
@@ -27,7 +27,7 @@ To install the script, use the following command:
 powershell -NoProfile -ExecutionPolicy Bypass -Command "iex (iwr -UseBasicParsing 'https://raw.githubusercontent.com/druxorey/windots/refs/heads/main/scripts/windows-bootstrap.ps1')"
 ```
 
-> [!NOTE] COMMAND EXPLICATION
+> [!NOTE]
 > This command downloads and executes the `windows-bootstrap.ps1` script from the GitHub repository. It uses `Invoke-WebRequest` (`iwr`) to fetch the script and `Invoke-Expression` (`iex`) to run it directly in PowerShell. The `-NoProfile` option ensures that PowerShell runs without loading user profiles, and `-ExecutionPolicy Bypass` allows the script to execute without execution policy restrictions.
 
 ## Contribute
