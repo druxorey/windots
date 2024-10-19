@@ -15,6 +15,18 @@
 > [!NOTE]
 > Some of these scripts may violate Microsoft's guidelines and could be illegal. Whenever possible, acquire original licenses to avoid legal issues and ensure compliance with usage policies.
 
+## Installation
+
+The `windows-bootstrap.ps1` script automates the initial setup and configuration of a Windows system. It activates Windows, installs essential programs, and copies some files for system customization.
+
+This script is particularly useful for users who want a quick and easy installation process. You can find the script [here](scripts/windows-bootstrap.ps1).
+
+To install the script, use the following command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex (iwr -UseBasicParsing 'https://raw.githubusercontent.com/druxorey/windots/refs/heads/main/scripts/windows-bootstrap.ps1')"
+```
+
 ## Contribute
 
 If you want to add new scripts or improve existing ones, follow these steps:
