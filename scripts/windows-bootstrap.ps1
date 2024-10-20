@@ -67,6 +67,10 @@ function main {
 	Write-Host "`n[========== WELCOME TO DRUXOREY'S WINDOWS BOOTSTRAP ==========]`n"
 	[System.Console]::ResetColor()
 
+	if (askToExceute "Do you want to update the system? (Y/N)") {
+		winget upgrade --all
+	}
+
 	if (askToExceute "Do you want to activate Windows? (Y/N)") {
 		activateWindows
 	}
@@ -74,6 +78,12 @@ function main {
 	if (askToExceute "Do you want to install applications? (Y/N)") {
 		installApps
 	}
+
+	if (askToExceute "Do you want to restart the system? (Y/N)") {
+		Restart-Computer -Force
+	}
+
+	Write-Host "`n[========== SCRIPT EXECUTION COMPLETED ==========]`n"
 }
 
 main
