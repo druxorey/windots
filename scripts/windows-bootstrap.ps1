@@ -2,24 +2,25 @@ function askToExceute {
 	param (
 		[string]$message
 	)
-	Write-Host $message
-	$userInput = Read-Host
-	switch ($userInput.ToUpper()) {
-		"Y" {
+	
+	do {
+		$userInput = Read-Host -Prompt $message
+	
+		if ($userInput.ToUpper() -eq "Y" -or $userInput.ToUpper() -eq "") {
 			Write-Host "Continuing with the script execution..."
+			Start-Sleep -Seconds 1
 			return $true
-		}
-		"N" {
-			Write-Host "Ending the script."
+		} elseif ($userInput.ToUpper() -eq "N") {
 			return $false
-		}
-		default {
+		} else {
+			Clear-Host
 			Write-Host "Invalid input. Please enter Y or N."
+			continue
 		}
-	}
+	} while ($true)
 }
 
-function ActivateWindows {
+function activateWindows {
 	# ACTIVATION KEYS
 	# 6TP4R-GNPTD-KYYHQ-7B7DP-J447
 	# NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
@@ -54,9 +55,11 @@ function InstallApps {
 }
 
 function Main {
-	Write-Host "[========== WELCOME TO DRUXOREY'S WINDOWS BOOTSTRAP ==========]"
+	Clear-Host
+	Write-Host "`n[========== WELCOME TO DRUXOREY'S WINDOWS BOOTSTRAP ==========]`n"
+
 	if (askToExceute "Do you want to activate Windows? (Y/N)") {
-		ActivateWindows
+		activateWindows
 	}
 
 	if (askToExceute "Do you want to install applications? (Y/N)") {
