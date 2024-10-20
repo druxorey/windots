@@ -47,7 +47,7 @@ function installApps {
 		"AdrienAllard.FileConverter", "dotPDN.PaintDotNet", "OBSProject.OBSStudio", 
 		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", 
 		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", 
-		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian"
+		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian", "GnuPG.Gpg4win"
 	)
 
 	foreach ($app in $apps) {
