@@ -8,8 +8,6 @@
 
 - `assets`: Contains directories such as cursors for Windows cursors and icons used in the configuration.
 
-- `config`: This directory contains specific configuration files for different programs and tools.
-
 - `scripts`: Contains useful scripts for automating tasks during the initial setup of a Windows installation.
 
 > [!CAUTION]
