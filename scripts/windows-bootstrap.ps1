@@ -62,15 +62,27 @@ function installApps {
 
 
 function getCustomizationFiles {
+
+	if (-not (Test-Path -Path "config")) {
+		New-Item -ItemType Directory -Path "config"
+	}
+	
 	$customizationFiles = @(
-		"https://github.com/dracula/microsoft-edge.git"
+		"https://github.com/dracula/microsoft-edge/archive/refs/heads/main.zip"
 	)
+
+	$fileNames = @("dracula-for-edge.zip")
+	$i = 0
 	
 	foreach ($file in $customizationFiles) {
 		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
 		Write-Host "Downloading $file..."
 		[System.Console]::ResetColor()
-		git clone $file
+		Invoke-WebRequest -Uri $file -OutFile "config\$($fileNames[$i])"
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
+		Write-Host "Downloaded $($fileNames[$i])"
+		[System.Console]::ResetColor()
+		$i++
 	}
 }
 
@@ -95,13 +107,16 @@ function main {
 
 	if (askToExceute "Do you want to download the customization files? (Y/N)") {
 		getCustomizationFiles
-	}
+		Write-Host "IMPORTANT: The files were downloaded to the 'config' folder."
+}
 
 	if (askToExceute "Do you want to restart the system? (Y/N)") {
 		Restart-Computer -Force
 	}
 
-	Write-Host "`n[========== SCRIPT EXECUTION COMPLETED ==========]`n"
+	[System.Console]::ForegroundColor = [System.ConsoleColor]::Magenta
+	Write-Host "`n[========== SCRIPT EXECUTION COMPLETED ==========]"
+	[System.Console]::ResetColor()
 }
 
 main
