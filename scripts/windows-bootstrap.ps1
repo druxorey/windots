@@ -61,6 +61,20 @@ function installApps {
 }
 
 
+function getCustomizationFiles {
+	$customizationFiles = @(
+		"https://github.com/dracula/microsoft-edge.git"
+	)
+	
+	foreach ($file in $customizationFiles) {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
+		Write-Host "Downloading $file..."
+		[System.Console]::ResetColor()
+		git clone $file
+	}
+}
+
+
 function main {
 	Clear-Host
 	[System.Console]::ForegroundColor = [System.ConsoleColor]::Magenta
@@ -77,6 +91,10 @@ function main {
 
 	if (askToExceute "Do you want to install applications? (Y/N)") {
 		installApps
+	}
+
+	if (askToExceute "Do you want to download the customization files? (Y/N)") {
+		getCustomizationFiles
 	}
 
 	if (askToExceute "Do you want to restart the system? (Y/N)") {
