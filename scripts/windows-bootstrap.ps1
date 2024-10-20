@@ -4,7 +4,9 @@ function askToExceute {
 	)
 	
 	do {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Cyan
 		$userInput = Read-Host -Prompt $message
+		[System.Console]::ResetColor()
 	
 		if ($userInput.ToUpper() -eq "Y" -or $userInput.ToUpper() -eq "") {
 			Write-Host "Continuing with the script execution..."
@@ -19,6 +21,7 @@ function askToExceute {
 		}
 	} while ($true)
 }
+
 
 function activateWindows {
 	# ACTIVATION KEYS
@@ -36,7 +39,8 @@ function activateWindows {
 	slmgr /ato
 }
 
-function InstallApps {
+
+function installApps {
 	$apps = @(
 		"7zip.7zip", "Microsoft.PowerToys", "Microsoft.VisualStudioCode", "AIMP.AIMP", 
 		"Git.Git", "Neovim.Neovim", "SumatraPDF.SumatraPDF", "VideoLAN.VLC", 
@@ -47,24 +51,29 @@ function InstallApps {
 	)
 
 	foreach ($app in $apps) {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
 		Write-Host "Installing $app..."
+		[System.Console]::ResetColor()
 		winget install $app --silent --accept-package-agreements --accept-source-agreements
 	}
 
 	Write-Host "Installation completed."
 }
 
-function Main {
+
+function main {
 	Clear-Host
+	[System.Console]::ForegroundColor = [System.ConsoleColor]::Magenta
 	Write-Host "`n[========== WELCOME TO DRUXOREY'S WINDOWS BOOTSTRAP ==========]`n"
+	[System.Console]::ResetColor()
 
 	if (askToExceute "Do you want to activate Windows? (Y/N)") {
 		activateWindows
 	}
 
 	if (askToExceute "Do you want to install applications? (Y/N)") {
-		InstallApps
+		installApps
 	}
 }
 
-Main
+main
