@@ -68,10 +68,11 @@ function getCustomizationFiles {
 	}
 	
 	$customizationFiles = @(
+		"https://github.com/druxorey/windots/archive/refs/heads/main.zip",
 		"https://github.com/dracula/microsoft-edge/archive/refs/heads/main.zip"
 	)
 
-	$fileNames = @("dracula-for-edge.zip")
+	$fileNames = @("windots.zip", "dracula-for-edge.zip")
 	$i = 0
 	
 	foreach ($file in $customizationFiles) {
