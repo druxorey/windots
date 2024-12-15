@@ -4,6 +4,12 @@
 
 <!-- ![Desktop Screenshot](/assets/main-rice.webp) -->
 
+<p align="center">
+<a href="https://www.deviantart.com/druxorey/gallery/94231956/wallpapers-for-dracula"><img src="https://img.shields.io/badge/wallpapers-BD93F9?style=for-the-badge"></a>
+<a href="#installation"><img src="https://img.shields.io/badge/installation-FF79C6?style	=for-the-badge"></a>
+<a href="https://github.com/druxorey/windots/blob/main/scripts/windows-bootstrap.ps1"><img src="https://img.shields.io/badge/get%20script-BD93F9?style=for-the-badge"></a>
+</p>
+
 ## Repository Structure
 
 - `assets`: Contains directories such as cursors for Windows cursors and icons used in the configuration.
