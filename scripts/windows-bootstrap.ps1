@@ -1,4 +1,4 @@
-function askToExceute {
+function askToExecute {
 	param (
 		[string]$message
 	)
@@ -94,24 +94,24 @@ function main {
 	Write-Host "`n[========== WELCOME TO DRUXOREY'S WINDOWS BOOTSTRAP ==========]`n"
 	[System.Console]::ResetColor()
 
-	if (askToExceute "Do you want to update the system? (Y/N)") {
+	if (askToExecute "Do you want to update the system? (Y/N)") {
 		winget upgrade --all
 	}
 
-	if (askToExceute "Do you want to activate Windows? (Y/N)") {
+	if (askToExecute "Do you want to activate Windows? (Y/N)") {
 		activateWindows
 	}
 
-	if (askToExceute "Do you want to install applications? (Y/N)") {
+	if (askToExecute "Do you want to install applications? (Y/N)") {
 		installApps
 	}
 
-	if (askToExceute "Do you want to download the customization files? (Y/N)") {
+	if (askToExecute "Do you want to download the customization files? (Y/N)") {
 		getCustomizationFiles
 		Write-Host "IMPORTANT: The files were downloaded to the 'config' folder."
 }
 
-	if (askToExceute "Do you want to restart the system? (Y/N)") {
+	if (askToExecute "Do you want to restart the system? (Y/N)") {
 		Restart-Computer -Force
 	}
 
