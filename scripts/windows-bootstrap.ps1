@@ -65,14 +65,24 @@ function getCustomizationFiles {
 
 	if (-not (Test-Path -Path "config")) {
 		New-Item -ItemType Directory -Path "config"
+		New-Item -ItemType Directory -Path "config\fonts"
 	}
 	
 	$customizationFiles = @(
 		"https://github.com/druxorey/windots/archive/refs/heads/main.zip",
-		"https://github.com/dracula/microsoft-edge/archive/refs/heads/main.zip"
+		"https://github.com/dracula/microsoft-edge/archive/refs/heads/main.zip",
+		"https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe"
 	)
 
-	$fileNames = @("windots.zip", "dracula-for-edge.zip")
+	$fontsFiles = @(
+		"https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip",
+		"https://dl.dafont.com/dl/?f=elegant_typewriter",
+		"https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Noto.zip"
+	)
+
+
+	$fileNames = @("windots.zip", "dracula-for-edge.zip", "optimizer.exe")
+	$fontsNames = @("hack-nerd-font.zip", "elegant-typerwiter.zip", "noto-nerd-font.zip")
 	$i = 0
 	
 	foreach ($file in $customizationFiles) {
@@ -82,6 +92,19 @@ function getCustomizationFiles {
 		Invoke-WebRequest -Uri $file -OutFile "config\$($fileNames[$i])"
 		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
 		Write-Host "Downloaded $($fileNames[$i])"
+		[System.Console]::ResetColor()
+		$i++
+	}
+
+	$i = 0
+
+	foreach ($fonts in $fontsFiles) {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
+		Write-Host "Downloading $fonts..."
+		[System.Console]::ResetColor()
+		Invoke-WebRequest -Uri $fonts -OutFile "config\fonts\$($fontsNames[$i])"
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
+		Write-Host "Downloaded $($fontsNames[$i])"
 		[System.Console]::ResetColor()
 		$i++
 	}
