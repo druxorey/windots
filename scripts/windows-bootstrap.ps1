@@ -63,7 +63,7 @@ function installApps {
 		"https://www.aimp.ru/?do=download.file&id=3"
 	)
 	
-	$applicationNames = @("msys2-x86_64-20240113.exe", "SumatraPDF-3.5.2-64-install.exe", "AIMP.exe")
+	$applicationNames = @("msys2-(v20240113).exe", "sumatra-pdf-(v3.5.2).exe", "aimp-(v5.30.2563).exe")
 	$i = 0
 
 	Write-Host "Downloading additional applications..."
