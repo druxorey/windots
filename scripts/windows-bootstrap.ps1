@@ -23,6 +23,27 @@ function askToExecute {
 }
 
 
+function getFromWeb {
+    param (
+        [string[]]$urls,
+        [string[]]$outputNames
+    )
+
+	$i = 0
+
+	foreach ($file in $urls) {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
+		Write-Host "Downloading $file..."
+		[System.Console]::ResetColor()
+		Invoke-WebRequest -Uri $file -OutFile "$($outputNames[$i])"
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
+		Write-Host "Downloaded $($outputNames[$i])"
+		[System.Console]::ResetColor()
+		$i++
+	}
+}
+
+
 function activateWindows {
 	# ACTIVATION KEYS
 	# 6TP4R-GNPTD-KYYHQ-7B7DP-J447
@@ -64,20 +85,10 @@ function installApps {
 	)
 	
 	$applicationNames = @("msys2-(v20240113).exe", "sumatra-pdf-(v3.5.2).exe", "aimp-(v5.30.2563).exe")
-	$i = 0
 
 	Write-Host "Downloading additional applications..."
 	
-	foreach ($application in $downloadedApps) {
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
-		Write-Host "Downloading $application..."
-		[System.Console]::ResetColor()
-		Invoke-WebRequest -Uri $application -OutFile "$($applicationNames[$i])"
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
-		Write-Host "Downloaded $($applicationNames[$i])"
-		[System.Console]::ResetColor()
-		$i++
-	}
+	getFromWeb -urls $downloadedApps -outputNames $applicationNames
 
 	Write-Host "Installation completed."
 }
@@ -105,31 +116,10 @@ function getCustomizationFiles {
 
 	$fileNames = @("windots.zip", "dracula-for-edge.zip", "optimizer.exe")
 	$fontsNames = @("hack-nerd-font.zip", "elegant-typerwiter.zip", "noto-nerd-font.zip")
-	$i = 0
-	
-	foreach ($file in $customizationFiles) {
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
-		Write-Host "Downloading $file..."
-		[System.Console]::ResetColor()
-		Invoke-WebRequest -Uri $file -OutFile "config\$($fileNames[$i])"
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
-		Write-Host "Downloaded $($fileNames[$i])"
-		[System.Console]::ResetColor()
-		$i++
-	}
 
-	$i = 0
+	getFromWeb -urls $customizationFiles -outputNames $fileNames
+	getFromWeb -urls $fontsFiles -outputNames $fontsNames
 
-	foreach ($fonts in $fontsFiles) {
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
-		Write-Host "Downloading $fonts..."
-		[System.Console]::ResetColor()
-		Invoke-WebRequest -Uri $fonts -OutFile "config\fonts\$($fontsNames[$i])"
-		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
-		Write-Host "Downloaded $($fontsNames[$i])"
-		[System.Console]::ResetColor()
-		$i++
-	}
 }
 
 
