@@ -56,6 +56,28 @@ function installApps {
 		[System.Console]::ResetColor()
 		winget install $app --silent --accept-package-agreements --accept-source-agreements
 	}
+	
+	$downloadedApps = @(
+		"https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe",
+		"https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe", 
+		"https://www.aimp.ru/?do=download.file&id=3"
+	)
+	
+	$applicationNames = @("msys2-x86_64-20240113.exe", "SumatraPDF-3.5.2-64-install.exe", "AIMP.exe")
+	$i = 0
+
+	Write-Host "Downloading additional applications..."
+	
+	foreach ($application in $downloadedApps) {
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
+		Write-Host "Downloading $application..."
+		[System.Console]::ResetColor()
+		Invoke-WebRequest -Uri $application -OutFile "$($applicationNames[$i])"
+		[System.Console]::ForegroundColor = [System.ConsoleColor]::Green
+		Write-Host "Downloaded $($applicationNames[$i])"
+		[System.Console]::ResetColor()
+		$i++
+	}
 
 	Write-Host "Installation completed."
 }
