@@ -66,7 +66,7 @@ function installApps {
 		"7zip.7zip", "Microsoft.PowerToys", "Microsoft.VisualStudioCode", "AIMP.AIMP", 
 		"Git.Git", "Neovim.Neovim", "VideoLAN.VLC", "Microsoft.WSL", "9MZNMNKSM73X",
 		"AdrienAllard.FileConverter", "dotPDN.PaintDotNet", "OBSProject.OBSStudio", 
-		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", 
+		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", "Oracle.JDK.24",
 		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", 
 		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian"
 	)
@@ -103,7 +103,6 @@ function getCustomizationFiles {
 	
 	$customizationFiles = @(
 		"https://github.com/druxorey/windots/archive/refs/heads/main.zip",
-		"https://github.com/dracula/microsoft-edge/archive/refs/heads/main.zip",
 		"https://github.com/ABaumher/galaxy-integration-steam/releases/download/v1.0.8/windows.zip"
 	)
 
@@ -143,7 +142,11 @@ function main {
 	if (askToExecute "Do you want to download the customization files? (Y/N)") {
 		getCustomizationFiles
 		Write-Host "IMPORTANT: The files were downloaded to the 'config' folder."
-}
+	}
+
+	if (askToExecute "Do you want to execute the chris titus script? (Y/N)") {
+		irm "https://christitus.com/win" | iex
+	}
 
 	if (askToExecute "Do you want to restart the system? (Y/N)") {
 		Restart-Computer -Force
