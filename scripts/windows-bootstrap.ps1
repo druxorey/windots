@@ -64,11 +64,11 @@ function activateWindows {
 function installApps {
 	$apps = @(
 		"7zip.7zip", "Microsoft.PowerToys", "Microsoft.VisualStudioCode", "AIMP.AIMP", 
-		"Git.Git", "Neovim.Neovim", "SumatraPDF.SumatraPDF", "VideoLAN.VLC", 
+		"Git.Git", "Neovim.Neovim", "VideoLAN.VLC", "Microsoft.WSL", "9MZNMNKSM73X",
 		"AdrienAllard.FileConverter", "dotPDN.PaintDotNet", "OBSProject.OBSStudio", 
 		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", 
 		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", 
-		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian", "GnuPG.Gpg4win"
+		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian"
 	)
 
 	foreach ($app in $apps) {
@@ -81,11 +81,10 @@ function installApps {
 	$downloadedApps = @(
 		"https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe",
 		"https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe", 
-		"https://www.aimp.ru/?do=download.file&id=3",
 		"https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe"
 	)
 	
-	$applicationNames = @("msys2-(v20240113).exe", "sumatra-pdf-(v3.5.2).exe", "aimp-(v5.30.2563).exe", "optimizer-(v16.7).exe")
+	$applicationNames = @("msys2-(v20240113).exe", "sumatra-pdf-(v3.5.2).exe", "optimizer-(v16.7).exe")
 
 	Write-Host "Downloading additional applications..."
 	
@@ -120,7 +119,6 @@ function getCustomizationFiles {
 
 	getFromWeb -urls $customizationFiles -outputNames $fileNames
 	getFromWeb -urls $fontsFiles -outputNames $fontsNames
-
 }
 
 
