@@ -80,11 +80,10 @@ function installApps {
 	
 	$downloadedApps = @(
 		"https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe",
-		"https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe", 
-		"https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe"
+		"https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe"
 	)
-	
-	$applicationNames = @("msys2-(v20240113).exe", "sumatra-pdf-(v3.5.2).exe", "optimizer-(v16.7).exe")
+
+	$applicationNames = @("msys2-v20240113.exe", "sumatra-pdf-v3.5.2.exe")
 
 	Write-Host "Downloading additional applications..."
 	
@@ -103,7 +102,9 @@ function getCustomizationFiles {
 	
 	$customizationFiles = @(
 		"https://github.com/druxorey/windots/archive/refs/heads/main.zip",
-		"https://github.com/ABaumher/galaxy-integration-steam/releases/download/v1.0.8/windows.zip"
+		"https://github.com/ABaumher/galaxy-integration-steam/releases/download/v1.0.8/windows.zip",
+		"https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe",
+		"https://github.com/BluePointLilac/ContextMenuManager/releases/download/3.3.3.1/ContextMenuManager.zip"
 	)
 
 	$fontsFiles = @(
@@ -113,8 +114,8 @@ function getCustomizationFiles {
 	)
 
 
-	$fileNames = @("windots.zip", "dracula-for-edge.zip", "galaxy-integration-steam.zip")
-	$fontsNames = @("hack-nerd-font.zip", "elegant-typerwiter.zip", "noto-nerd-font.zip")
+	$fileNames = @("windots.zip", "dracula-for-edge.zip", "galaxy-integration-steam.zip", "optimizer-v16.7.exe", "context-menu-manager-v3.3.3.1.zip")
+	$fontsNames = @("hack-nerd-font.zip", "elegant-typewriter.zip", "noto-nerd-font.zip")
 
 	getFromWeb -urls $customizationFiles -outputNames $fileNames
 	getFromWeb -urls $fontsFiles -outputNames $fontsNames
