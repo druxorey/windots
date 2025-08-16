@@ -67,7 +67,7 @@ function installApps {
 		"Git.Git", "Neovim.Neovim", "VideoLAN.VLC", "Microsoft.WSL", "9MZNMNKSM73X",
 		"AdrienAllard.FileConverter", "dotPDN.PaintDotNet", "OBSProject.OBSStudio", 
 		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", "Oracle.JDK.24",
-		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", 
+		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", "Audacity.Audacity", 
 		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian"
 	)
 
