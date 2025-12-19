@@ -67,8 +67,8 @@ function installApps {
 		"Git.Git", "Neovim.Neovim", "VideoLAN.VLC", "Microsoft.WSL", "9MZNMNKSM73X",
 		"AdrienAllard.FileConverter", "dotPDN.PaintDotNet", "OBSProject.OBSStudio", 
 		"Valve.Steam", "Mojang.MinecraftLauncher", "GOG.Galaxy", "Oracle.JDK.24",
-		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Notion.Notion", "Audacity.Audacity", 
-		"Brave.Brave", "Discord.Discord", "Microsoft.OneDrive", "Obsidian.Obsidian"
+		"Google.ChromeRemoteDesktopHost", "QL-Win.QuickLook", "Canva.Affinity", "Audacity.Audacity", 
+		"Brave.Brave", "Discord.Discord", "TheDocumentFoundation.LibreOffice", "Obsidian.Obsidian"
 	)
 
 	foreach ($app in $apps) {
@@ -103,7 +103,6 @@ function getCustomizationFiles {
 	$customizationFiles = @(
 		"https://github.com/druxorey/windots/archive/refs/heads/main.zip",
 		"https://github.com/ABaumher/galaxy-integration-steam/releases/download/v1.0.8/windows.zip",
-		"https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe",
 		"https://github.com/BluePointLilac/ContextMenuManager/releases/download/3.3.3.1/ContextMenuManager.zip"
 	)
 
@@ -114,7 +113,7 @@ function getCustomizationFiles {
 	)
 
 
-	$fileNames = @("windots.zip", "dracula-for-edge.zip", "galaxy-integration-steam.zip", "optimizer-v16.7.exe", "context-menu-manager-v3.3.3.1.zip")
+	$fileNames = @("windots.zip", "dracula-for-edge.zip", "galaxy-integration-steam.zip", "context-menu-manager-v3.3.3.1.zip")
 	$fontsNames = @("hack-nerd-font.zip", "elegant-typewriter.zip", "noto-nerd-font.zip")
 
 	getFromWeb -urls $customizationFiles -outputNames $fileNames
